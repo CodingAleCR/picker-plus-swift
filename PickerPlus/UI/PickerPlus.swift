@@ -1,7 +1,41 @@
 import SwiftUI
 
 public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: View {
-    // TODO: Add custom picker implementation
+    public let sources: [Data]
+    public let selection: Data?
+    private let itemBuilder: (Data) -> Content
+    @State private var backgroundColor: Color = Color.black.opacity(0.05)
+    
+    // TODO: Add borders and corner radius.
+    
+    // TODO: Add support for custom indicators
+    
+    public init(
+        _ sources: [Data],
+        selection: Data?,
+        @ViewBuilder itemBuilder: @escaping (Data) -> Content
+    ) {
+        self.sources = sources
+        self.selection = selection
+        self.itemBuilder = itemBuilder
+    }
+
+    // TODO: Add `body` here
+    
+    public var body: some View {
+        ZStack(alignment: .center) {
+            // TODO: Add indicator
+            
+            // TODO: Add items
+        }
+        // TODO: Add background
+    }
+    
+    func pickerBackgroundColor(_ color: Color) -> PickerPlus {
+        var view = self
+        view._backgroundColor = State(initialValue: color)
+        return view
+    }
 }
 
 struct PreviewPickerPlus: View {
@@ -9,27 +43,7 @@ struct PreviewPickerPlus: View {
     
     var body: some View {
         VStack {
-            Text("Using an enum")
-            PickerPlus(
-                Vehicles.allCases,
-                selection: selectedItem
-            ) { item in
-                Text(item.rawValue.capitalized)
-                    .font(Font.footnote.weight(.medium))
-                    .foregroundColor(selectedItem == item ? .white : nil)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 8)
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.center)
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.150)) {
-                            selectedItem = item
-                        }
-                    }
-            }
-            .pickerBackgroundColor(.green.opacity(0.15))
-            .accentColor(.green)
-            .padding()
+            // TODO: Add example usage
         }
     }
 }
