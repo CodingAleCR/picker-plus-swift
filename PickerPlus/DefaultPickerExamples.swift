@@ -16,11 +16,30 @@ struct DefaultPickerExamples: View {
     
     var body: some View {
         VStack {
-            // TODO: Add simple Picker example
+            Text("SwiftUI Picker: Simple")
+            Picker("Types of Vehicles", selection: $selectedItem) {
+                ForEach(Vehicles.allCases) { vehicle in
+                    Text(vehicle.rawValue.capitalized)
+                }
+            }
+            .padding()
             
-            // TODO: Add complex Picker example
+            Text("SwiftUI Picker: Complex")
+            Picker("Owned Vehicles", sources: $ownedVehicles, selection: \.vehicle) {
+                ForEach(Vehicles.allCases) { vehicle in
+                    Text(vehicle.rawValue.capitalized)
+                }
+            }
+            .padding()
             
-            // TODO: Add segmented Picker example
+            Text("SwiftUI Picker: Segmented")
+            Picker("Types of Vehicles - Segmented", selection: $selectedItem) {
+                ForEach(Vehicles.allCases) { vehicle in
+                    Text(vehicle.rawValue.capitalized)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
         }
     }
 }
