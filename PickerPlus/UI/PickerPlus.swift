@@ -5,7 +5,13 @@ public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: Vi
     public let selection: Data?
     private let itemBuilder: (Data) -> Content
     
-    // TODO: Add default background
+    @State private var backgroundColor: Color = Color.black.opacity(0.05)
+    
+    func pickerBackgroundColor(_ color: Color) -> PickerPlus {
+        var view = self
+        view._backgroundColor = State(initialValue: color)
+        return view
+    }
     
     // TODO: Add borders and corner radius.
     
@@ -31,7 +37,10 @@ public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: Vi
                 }
             }
         }
-        // TODO: Add background
+        .background(
+            RoundedRectangle(cornerRadius: 6.0)
+                .fill(backgroundColor)
+        )
     }
 }
 
