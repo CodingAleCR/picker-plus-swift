@@ -1,14 +1,35 @@
 import SwiftUI
 
 public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: View {
-
-    // TODO: Add initializer and properties
+    public let sources: [Data]
+    public let selection: Data?
+    private let itemBuilder: (Data) -> Content
+    
+    // TODO: Add default background
+    
+    // TODO: Add borders and corner radius.
+    
+    // TODO: Add support for custom indicators
+    
+    public init(
+        _ sources: [Data],
+        selection: Data?,
+        @ViewBuilder itemBuilder: @escaping (Data) -> Content
+    ) {
+        self.sources = sources
+        self.selection = selection
+        self.itemBuilder = itemBuilder
+    }
     
     public var body: some View {
         ZStack(alignment: .center) {
             // TODO: Add indicator
             
-            // TODO: Add items
+            HStack(spacing: 0) {
+                ForEach(sources, id: \.self) { item in
+                    itemBuilder(item)
+                }
+            }
         }
         // TODO: Add background
     }
@@ -19,7 +40,26 @@ struct PreviewPickerPlus: View {
     
     var body: some View {
         VStack {
-            // TODO: Add example usage
+            Text("Using an enum")
+            PickerPlus(
+                Vehicles.allCases,
+                selection: selectedItem
+            ) { item in
+                Text(item.rawValue.capitalized)
+                    .font(Font.footnote.weight(.medium))
+                    .foregroundColor(selectedItem == item ? .white : nil)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 8)
+                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.150)) {
+                            selectedItem = item
+                        }
+                    }
+            }
+            .accentColor(.green)
+            .padding()
         }
     }
 }
