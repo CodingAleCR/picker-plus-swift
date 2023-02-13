@@ -13,7 +13,29 @@ public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: Vi
         return view
     }
     
-    // TODO: Add borders and corner radius.
+    @State private var cornerRadius: CGFloat?
+    
+    func cornerRadius(_ cornerRadius: CGFloat) -> PickerPlus {
+        var view = self
+        view._cornerRadius = State(initialValue: cornerRadius)
+        return view
+    }
+    
+    @State private var borderColor: Color?
+    
+    func borderColor(_ borderColor: Color) -> PickerPlus {
+        var view = self
+        view._borderColor = State(initialValue: borderColor)
+        return view
+    }
+    
+    @State private var borderWidth: CGFloat?
+    
+    func borderWidth(_ borderWidth: CGFloat) -> PickerPlus {
+        var view = self
+        view._borderWidth = State(initialValue: borderWidth)
+        return view
+    }
     
     // TODO: Add support for custom indicators
     
@@ -38,8 +60,12 @@ public struct PickerPlus<Data, Content> : View where Data: Hashable, Content: Vi
             }
         }
         .background(
-            RoundedRectangle(cornerRadius: 6.0)
-                .fill(backgroundColor)
+            RoundedRectangle(cornerRadius: cornerRadius ?? 6.0)
+                .fill(
+                    backgroundColor,
+                    strokeBorder: borderColor ?? Color.clear,
+                    lineWidth: borderWidth ?? .zero
+                )
         )
     }
 }
@@ -67,6 +93,9 @@ struct PreviewPickerPlus: View {
                         }
                     }
             }
+            .pickerBackgroundColor(.blue.opacity(0.15))
+            .borderWidth(2)
+            .borderColor(.blue)
             .accentColor(.green)
             .padding()
         }
