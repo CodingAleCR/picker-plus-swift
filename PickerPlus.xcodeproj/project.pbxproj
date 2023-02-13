@@ -23,6 +23,8 @@
 		4BB3A26629962D4300A5FF46 /* StyledPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3A26529962D4300A5FF46 /* StyledPicker.swift */; };
 		4BB3A26829962ED000A5FF46 /* OwnedVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3A26729962ED000A5FF46 /* OwnedVehicle.swift */; };
 		4BB3A26A29962FD100A5FF46 /* DefaultPickerExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3A26929962FD100A5FF46 /* DefaultPickerExamples.swift */; };
+		4BF6A99D299A163500A55628 /* SimpleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6A99C299A163500A55628 /* SimpleItem.swift */; };
+		4BF6A99F299A166800A55628 /* VerticalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6A99E299A166800A55628 /* VerticalItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		4BB3A26529962D4300A5FF46 /* StyledPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledPicker.swift; sourceTree = "<group>"; };
 		4BB3A26729962ED000A5FF46 /* OwnedVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedVehicle.swift; sourceTree = "<group>"; };
 		4BB3A26929962FD100A5FF46 /* DefaultPickerExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPickerExamples.swift; sourceTree = "<group>"; };
+		4BF6A99C299A163500A55628 /* SimpleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleItem.swift; sourceTree = "<group>"; };
+		4BF6A99E299A166800A55628 /* VerticalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				4BB3A25029949DA800A5FF46 /* PickerPlus.swift */,
+				4BF6A99C299A163500A55628 /* SimpleItem.swift */,
+				4BF6A99E299A166800A55628 /* VerticalItem.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -326,6 +332,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF6A99F299A166800A55628 /* VerticalItem.swift in Sources */,
+				4BF6A99D299A163500A55628 /* SimpleItem.swift in Sources */,
 				4BB3A26A29962FD100A5FF46 /* DefaultPickerExamples.swift in Sources */,
 				4B1E7145295FD0EE008F0312 /* CustomPicker.swift in Sources */,
 				4BB3A25129949DA800A5FF46 /* PickerPlus.swift in Sources */,
