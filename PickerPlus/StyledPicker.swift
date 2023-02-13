@@ -10,7 +10,19 @@ import SwiftUI
 struct StyledPicker: View {
     @State private var selectedItem = Vehicles.bike
     
-    // TODO: Add initializer for styling Picker
+    init() {
+        // Sets the background color of the Picker
+        UISegmentedControl.appearance().backgroundColor = .red.withAlphaComponent(0.15)
+        
+        // Disappears the divider
+        UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        
+        // Changes the color for the selected item
+        UISegmentedControl.appearance().selectedSegmentTintColor = .red
+        
+        // Changes the text color for the selected item
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    }
     
     var body: some View {
         VStack {
